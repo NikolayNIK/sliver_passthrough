@@ -22,12 +22,15 @@ import 'package:sliver_passthrough/src/render_sliver_passthrough.dart';
 /// is not allowed.
 @immutable
 class SliverPassthrough extends RenderObjectWidget {
-  const SliverPassthrough({super.key, required this.builder}) : super();
+  const SliverPassthrough({
+    super.key,
+    this.minBoxExtent = .0,
+    required this.builder,
+  }) : super();
 
-  // TODO My gut tells me this value needs to somehow get split in two
-  // to cover more use cases. As it stands, it significantly limits
-  // the functionality to a couple niche use cases.
-  final double minBoxExtent = .0;
+  /// Minimum extent (height for vertical, width for horizontal scrolling)
+  /// of the box. Also increases the scroll extent of the sliver by that amount.
+  final double minBoxExtent;
 
   /// Builder function that should return a box child of this widget.
   /// Arguments are:
