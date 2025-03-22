@@ -1,0 +1,25 @@
+name: example
+description: "Example project designed to showcase the full range of capabilities of the sliver_passthrough package."
+
+publish_to: "none"
+
+version: 1.0.0
+
+environment:
+  sdk: ^3.7.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  sliver_passthrough:
+    path: ".."
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^5.0.0
+
+flutter:
+  uses-material-design: true

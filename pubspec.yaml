@@ -1,0 +1,19 @@
+name: sliver_passthrough
+description: "Insert a box amongst the slivers seamlessly"
+version: 0.0.0
+
+repository: 'https://github.com/NikolayNIK/sliver_passthrough'
+issue_tracker: 'https://github.com/NikolayNIK/sliver_passthrough/issues'
+
+environment:
+  sdk: ^3.7.0
+  flutter: ">=1.17.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
