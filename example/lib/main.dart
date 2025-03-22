@@ -9,22 +9,20 @@ class MaterialTableViewDemoApp extends StatelessWidget {
   const MaterialTableViewDemoApp({super.key});
 
   @override
-  Widget build(BuildContext context) =>
-      MaterialApp(
-        title: _title,
-        theme: _appTheme(Brightness.light),
-        darkTheme: _appTheme(Brightness.dark),
-        home: const DemoPage(),
-      );
+  Widget build(BuildContext context) => MaterialApp(
+    title: _title,
+    theme: _appTheme(Brightness.light),
+    darkTheme: _appTheme(Brightness.dark),
+    home: const DemoPage(),
+  );
 
-  ThemeData _appTheme(Brightness brightness) =>
-      ThemeData(
-        useMaterial3: true,
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: Colors.blueGrey,
-          brightness: brightness,
-        ),
-      );
+  ThemeData _appTheme(Brightness brightness) => ThemeData(
+    useMaterial3: true,
+    colorScheme: ColorScheme.fromSeed(
+      seedColor: Colors.blueGrey,
+      brightness: brightness,
+    ),
+  );
 }
 
 class DemoPage extends StatefulWidget {
@@ -47,96 +45,87 @@ class _DemoPageState extends State<DemoPage> {
   }
 
   @override
-  Widget build(BuildContext context) =>
-      Directionality(
-        textDirection: _textDirection,
-        child: Scaffold(
-          appBar: AppBar(
-            title: Text(_title),
-            actions: [
-              Tooltip(
-                message:
-                'Switch to ${_textDirection == TextDirection.ltr
-                    ? 'right-to-left'
-                    : 'left-to-right'} text direction',
-                child: IconButton(
-                  onPressed:
-                      () =>
-                      setState(
-                            () =>
+  Widget build(BuildContext context) => Directionality(
+    textDirection: _textDirection,
+    child: Scaffold(
+      appBar: AppBar(
+        title: Text(_title),
+        actions: [
+          Tooltip(
+            message:
+                'Switch to ${_textDirection == TextDirection.ltr ? 'right-to-left' : 'left-to-right'} text direction',
+            child: IconButton(
+              onPressed:
+                  () => setState(
+                    () =>
                         _textDirection =
-                        _textDirection == TextDirection.ltr
-                            ? TextDirection.rtl
-                            : TextDirection.ltr,
-                      ),
-                  icon: Icon(
-                    _textDirection == TextDirection.ltr
-                        ? Icons.format_textdirection_r_to_l
-                        : Icons.format_textdirection_l_to_r,
+                            _textDirection == TextDirection.ltr
+                                ? TextDirection.rtl
+                                : TextDirection.ltr,
                   ),
-                ),
+              icon: Icon(
+                _textDirection == TextDirection.ltr
+                    ? Icons.format_textdirection_r_to_l
+                    : Icons.format_textdirection_l_to_r,
               ),
-              Tooltip(
-                message:
-                'Switch to ${_scrollDirection == Axis.vertical
-                    ? 'horizontal'
-                    : 'vertical'} scrolling',
-                child: IconButton(
-                  onPressed:
-                      () =>
-                      setState(
-                            () =>
-                        _scrollDirection =
-                        _scrollDirection == Axis.vertical
-                            ? Axis.horizontal
-                            : Axis.vertical,
-                      ),
-                  icon: Icon(
-                    _scrollDirection == Axis.vertical
-                        ? Icons.vertical_distribute
-                        : Icons.horizontal_distribute,
-                  ),
-                ),
-              ),
-            ],
-          ),
-          body: SafeArea(
-            child: CustomScrollView(
-              scrollDirection: _scrollDirection,
-              slivers: [
-                for (var i = 0; i < 8; i++)
-                  SliverPassthrough(
-                    builder:
-                        (context, verticalOffset) =>
-                        Placeholder(
-                          child: BoxToSliverPassthrough(
-                            sliver: SliverFixedExtentList(
-                              delegate: SliverChildBuilderDelegate(
-                                childCount: 32,
-                                    (context, index) =>
-                                    InkWell(
-                                      onTap: () {},
-                                      child: Align(
-                                        alignment:
-                                        Directionality.of(context) ==
-                                            TextDirection.ltr
-                                            ? Alignment.centerLeft
-                                            : Alignment.centerRight,
-                                        child: Padding(
-                                          padding: const EdgeInsets.all(16.0),
-                                          child: Text(index.toString()),
-                                        ),
-                                      ),
-                                    ),
-                              ),
-                              itemExtent: 56,
-                            ),
-                          ),
-                        ),
-                  ),
-              ],
             ),
           ),
+          Tooltip(
+            message:
+                'Switch to ${_scrollDirection == Axis.vertical ? 'horizontal' : 'vertical'} scrolling',
+            child: IconButton(
+              onPressed:
+                  () => setState(
+                    () =>
+                        _scrollDirection =
+                            _scrollDirection == Axis.vertical
+                                ? Axis.horizontal
+                                : Axis.vertical,
+                  ),
+              icon: Icon(
+                _scrollDirection == Axis.vertical
+                    ? Icons.vertical_distribute
+                    : Icons.horizontal_distribute,
+              ),
+            ),
+          ),
+        ],
+      ),
+      body: SafeArea(
+        child: CustomScrollView(
+          scrollDirection: _scrollDirection,
+          slivers: [
+            for (var i = 0; i < 8; i++)
+              SliverPassthrough(
+                builder:
+                    (context, verticalOffset) => Placeholder(
+                      child: BoxToSliverPassthrough(
+                        sliver: SliverFixedExtentList(
+                          delegate: SliverChildBuilderDelegate(
+                            childCount: 32,
+                            (context, index) => InkWell(
+                              onTap: () {},
+                              child: Align(
+                                alignment:
+                                    Directionality.of(context) ==
+                                            TextDirection.ltr
+                                        ? Alignment.centerLeft
+                                        : Alignment.centerRight,
+                                child: Padding(
+                                  padding: const EdgeInsets.all(16.0),
+                                  child: Text(index.toString()),
+                                ),
+                              ),
+                            ),
+                          ),
+                          itemExtent: 56,
+                        ),
+                      ),
+                    ),
+              ),
+          ],
         ),
-      );
+      ),
+    ),
+  );
 }
