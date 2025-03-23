@@ -1,5 +1,5 @@
 name: sliver_passthrough
-description: "Insert a box amongst the slivers seamlessly"
+description: "Utility package that provides a seamless way to use box widgets sandwiched between slivers"
 version: 0.0.0
 
 repository: 'https://github.com/NikolayNIK/sliver_passthrough'
