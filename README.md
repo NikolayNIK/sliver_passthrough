@@ -1,3 +1,6 @@
+[![pub package](https://img.shields.io/pub/v/sliver_passthrough.svg)](https://pub.dev/packages/sliver_passthrough)
+[![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/NikolayNIK/sliver_passthrough/blob/master/LICENSE)
+
 Utility package that provides a seamless way to use box widgets sandwiched between slivers
 
 ## Features
