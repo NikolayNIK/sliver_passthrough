@@ -97,31 +97,29 @@ class _DemoPageState extends State<DemoPage> {
           slivers: [
             for (var i = 0; i < 8; i++)
               SliverPassthrough(
-                builder:
-                    (context, verticalOffset) => Placeholder(
-                      child: BoxToSliverPassthrough(
-                        sliver: SliverFixedExtentList(
-                          delegate: SliverChildBuilderDelegate(
-                            childCount: 32,
-                            (context, index) => InkWell(
-                              onTap: () {},
-                              child: Align(
-                                alignment:
-                                    Directionality.of(context) ==
-                                            TextDirection.ltr
-                                        ? Alignment.centerLeft
-                                        : Alignment.centerRight,
-                                child: Padding(
-                                  padding: const EdgeInsets.all(16.0),
-                                  child: Text(index.toString()),
-                                ),
-                              ),
+                child: Placeholder(
+                  child: BoxToSliverPassthrough(
+                    sliver: SliverFixedExtentList(
+                      delegate: SliverChildBuilderDelegate(
+                        childCount: 32,
+                        (context, index) => InkWell(
+                          onTap: () {},
+                          child: Align(
+                            alignment:
+                                Directionality.of(context) == TextDirection.ltr
+                                    ? Alignment.centerLeft
+                                    : Alignment.centerRight,
+                            child: Padding(
+                              padding: const EdgeInsets.all(16.0),
+                              child: Text(index.toString()),
                             ),
                           ),
-                          itemExtent: 56,
                         ),
                       ),
+                      itemExtent: 56,
                     ),
+                  ),
+                ),
               ),
           ],
         ),

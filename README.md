@@ -17,17 +17,16 @@ CustomScrollView(
   slivers: [
     SliverPassthrough( // sliver
       minBoxExtent: .0, // extends scroll extent and prevents the box from squishing to 0, if necessary
-      builder:
-          (context, boxScrollOffset) => ColoredBox( // box
-            color: Colors.red,
-            child: BoxToSliverPassthrough( // sliver again, scrolled by the original CustomScrollView
-              sliver: SliverList(
-                delegate: SliverChildBuilderDelegate(
-                  (context, index) => SizedBox(),
-                ),
-              ),
+      child: ColoredBox( // box
+        color: Colors.red,
+        child: BoxToSliverPassthrough( // sliver again, scrolled by the original CustomScrollView
+          sliver: SliverList(
+            delegate: SliverChildBuilderDelegate(
+              (context, index) => SizedBox(),
             ),
           ),
+        )
+      ),
     ),
   ],
 )

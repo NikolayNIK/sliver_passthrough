@@ -22,7 +22,11 @@ import 'package:sliver_passthrough/src/render_sliver_passthrough.dart';
 /// is not allowed.
 @immutable
 class SliverPassthrough extends RenderObjectWidget {
-  const SliverPassthrough({
+  SliverPassthrough({super.key, this.minBoxExtent = .0, required Widget child})
+    : builder = ((_, __) => child),
+      super();
+
+  const SliverPassthrough.builder({
     super.key,
     this.minBoxExtent = .0,
     required this.builder,
