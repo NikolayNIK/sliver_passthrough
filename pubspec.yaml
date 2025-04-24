@@ -5,6 +5,11 @@ version: 0.1.0
 repository: 'https://github.com/NikolayNIK/sliver_passthrough'
 issue_tracker: 'https://github.com/NikolayNIK/sliver_passthrough/issues'
 
+topics:
+  - sliver
+  - scroll
+  - widget
+
 environment:
   sdk: ^3.7.0
   flutter: ">=1.17.0"
