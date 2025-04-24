@@ -19,8 +19,8 @@ CustomScrollView(
       minBoxExtent: .0, // extends scroll extent and prevents the box from squishing to 0, if necessary
       child: ColoredBox( // box
         color: Colors.red,
-        child: BoxToSliverPassthrough( // sliver again, scrolled by the original CustomScrollView
-          sliver: SliverList(
+        child: BoxToSliverPassthrough(
+          sliver: SliverList( // sliver again, scrolled by the original CustomScrollView
             delegate: SliverChildBuilderDelegate(
               (context, index) => SizedBox(),
             ),
