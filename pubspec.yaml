@@ -1,6 +1,6 @@
 name: sliver_passthrough
 description: "Utility package that provides a seamless way to use box widgets sandwiched between slivers"
-version: 0.1.0
+version: 1.0.0
 
 repository: 'https://github.com/NikolayNIK/sliver_passthrough'
 issue_tracker: 'https://github.com/NikolayNIK/sliver_passthrough/issues'
